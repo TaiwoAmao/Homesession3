@@ -13,8 +13,8 @@ Array.prototype.toForty = function() {
   * return [2, 4, . . . 40]
   */
   var twoToForty = [];
-  for (var i = 2; i <= 40; i+=2) { 
-    twoToForty.push(i);
+  for (var j = 2; j <= 40; j+=2) { 
+    twoToForty.push(j);
   }
   return twoToForty;
 };
@@ -23,8 +23,8 @@ Array.prototype.toOneThousand = function() {
   * return [10, 20 . . . 1000]
   */
   var tenToOneThousand = [];
-  for (var i = 10; i <= 1000; i+=10) {
-      tenToOneThousand.push(i);
+  for (var k = 10; k <= 1000; k+=10) {
+      tenToOneThousand.push(k);
   }
   return tenToOneThousand;
 };
@@ -35,25 +35,25 @@ Array.prototype.search = function (n) {//defined my search function here.
  * Binary search implementation to return
  * {count : c, index: i, length: n}
  */
-  /*minSAI means 'minimum Sub Array Index',
-    maxSAI means 'maximum Sub Array Index',
-    midSAI means 'current Sub Array Index'.*/
-  var maxSAI = this.length - 1;
-  var minSAI = 0;
-  var midSAI;
+  /*min means 'minimum Sub Array Index',
+    max means 'maximum Sub Array Index',
+    mid means 'current Sub Array Index'.*/
+  var max = this.length - 1;
+  var min = 0;
+  var mid;
   var search = {
     count: 0,
-    index: midSAI,
+    index: mid,
     length: this.length
   };
-  while (minSAI <= maxSAI) {
-    midSAI = Math.floor((minSAI + maxSAI) / 2);
-    if (this[minSAI] === n || this[maxSAI] === n) {
-      if (this[maxSAI] === n) {
-        search.index = maxSAI;
+  while (min <= max) {
+    mid = Math.floor((min + max) / 2);
+    if (this[min] === n || this[max] === n) {
+      if (this[max] === n) {
+        search.index = max;
       }
       else {
-        search.index = minSAI;
+        search.index = min;
       }
       return search;
     }
@@ -72,16 +72,16 @@ Array.prototype.search = function (n) {//defined my search function here.
         }
         obj.count++;*/
     
-    if (this[midSAI] < n) {
-      minSAI = midSAI + 1;
-      maxSAI--;
+    if (this[mid] < n) {
+      min = mid + 1;
+      max--;
     }
-    else if (this[midSAI] > n) {
-      maxSAI = midSAI - 1;
-      minSAI++;
+    else if (this[mid] > n) {
+      max = mid - 1;
+      min++;
     }
     else {
-      search.index = midSAI;
+      search.index = mid;
       return search;
     }
     search.count++;
