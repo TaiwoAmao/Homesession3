@@ -1,0 +1,11 @@
+{
+  "name": "homelab3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binarylab.js",
+  "scripts": {
+    "test": "npm install"
+  },
+  "author": "",
+  "license": "ISC"
+}
